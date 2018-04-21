@@ -1,3 +1,5 @@
+require 'benchmark'
+
 def number_hash
 	digit_hash = {}
 	key_counter = 0
@@ -9,13 +11,18 @@ def number_hash
 		value_counter += 1
 
 		digit_hash[key_counter] = value_counter
-		if value_counter % 2 == 0
-			digit_hash[key_counter] = (value_counter + 1)
-		#elsif value_counter %
-		end
+		
+			if value_counter % 2 == 0 && value_counter % 7 == 0
+				digit_hash[key_counter] = (value_counter * 2)
+			#end
 
-		
-		
+			elsif value_counter % 2 == 0
+				digit_hash[key_counter] = (value_counter + 1)
+			#end
+
+			elsif value_counter % 7 == 0
+				digit_hash[key_counter] = (value_counter - 1)
+			end
 	end  
 	return digit_hash
 end 
